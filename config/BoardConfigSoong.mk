@@ -50,6 +50,11 @@ SOONG_CONFIG_lineageGlobalVars += \
     target_trust_usb_control_disable \
     uses_egl_display_array
 
+ifeq ($(filter $(UM_6_1_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+    SOONG_CONFIG_lineageGlobalVars += \
+        gralloc_handle_has_ubwcp_format
+endif
+
 SOONG_CONFIG_NAMESPACES += lineageNvidiaVars
 SOONG_CONFIG_lineageNvidiaVars += \
     uses_nvidia_enhancements
